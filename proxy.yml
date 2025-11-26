@@ -1,0 +1,41 @@
+networks:
+  siliweb:
+    external: true
+
+services:
+  nginx-proxy:
+    container_name: nginx-proxy
+    image: jwilder/nginx-proxy
+    expose:
+      - "9000"
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - RESOLVERS=169.254.169.253 # for EC2 instances to resolve DNS
+    volumes:
+      - certs:/etc/nginx/certs
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+      - "/var/run/docker.sock:/tmp/docker.sock:ro"
+    networks:
+      - siliweb
+
+  letsencrypt-nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - certs:/etc/nginx/certs
+      - vhostd:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - acme:/etc/acme.sh
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    environment:
+      NGINX_PROXY_CONTAINER: nginx-proxy
+      DEFAULT_EMAIL: silidrone@gmail.com
+
+volumes:
+  certs:
+  html:
+  vhostd:
+  acme:
