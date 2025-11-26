@@ -31,6 +31,15 @@ const projectsData = [
     order: 3,
   },
   {
+    title: 'silidrone.com',
+    description: 'This website! A personal portfolio built with React and TypeScript on the frontend, Node.js/Express with Apollo GraphQL on the backend, PostgreSQL with Drizzle ORM, and Docker for containerization. Features automated Medium blog post syncing via RSS.',
+    technologies: ['React', 'TypeScript', 'Node.js', 'GraphQL', 'PostgreSQL', 'Docker'],
+    github: 'https://github.com/Silidrone/siliweb',
+    demo: 'https://silidrone.com',
+    featured: true,
+    order: 3,
+  },
+  {
     title: 'aquamaqua',
     description: 'An old project from when I was 14 years old and curious about embedded systems. Built an aquarium monitoring system for ESP8266 with a custom GUI framework from scratch, real-time sensor monitoring with graphing, Wi-Fi connectivity, and persistent EEPROM storage.',
     technologies: ['C++', 'ESP8266', 'IoT', 'Embedded Systems'],
@@ -55,7 +64,7 @@ const projectsData = [
     github: 'https://github.com/Silidrone/leetcodesolutions',
     demo: '',
     featured: false,
-    order: 3,
+    order: 4,
   },
 ];
 
