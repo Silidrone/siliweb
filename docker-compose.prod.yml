@@ -1,6 +1,8 @@
 networks:
   siliweb:
     external: true
+  traefik:
+    external: true
 
 services:
   db:
@@ -50,11 +52,33 @@ services:
     expose:
       - "80"
     environment:
+      # jwilder/nginx-proxy config
       - VIRTUAL_HOST=silidrone.com
       - LETSENCRYPT_HOST=silidrone.com
       - LETSENCRYPT_EMAIL=silidrone@gmail.com
     networks:
       - siliweb
+      - traefik
+    labels:
+      # Traefik config
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      # Main domain router
+      - "traefik.http.routers.siliweb.rule=Host(`silidrone.com`)"
+      - "traefik.http.routers.siliweb.entrypoints=websecure"
+      - "traefik.http.routers.siliweb.tls.certresolver=myhttpchallenge"
+      - "traefik.http.routers.siliweb.service=siliweb"
+      # WWW redirect
+      - "traefik.http.routers.siliweb-www.rule=Host(`www.silidrone.com`)"
+      - "traefik.http.routers.siliweb-www.entrypoints=websecure"
+      - "traefik.http.routers.siliweb-www.tls.certresolver=myhttpchallenge"
+      - "traefik.http.routers.siliweb-www.middlewares=siliweb-www-redirect"
+      # WWW redirect middleware
+      - "traefik.http.middlewares.siliweb-www-redirect.redirectregex.regex=^https://www\\.silidrone\\.com/(.*)"
+      - "traefik.http.middlewares.siliweb-www-redirect.redirectregex.replacement=https://silidrone.com/$${1}"
+      - "traefik.http.middlewares.siliweb-www-redirect.redirectregex.permanent=true"
+      # Service
+      - "traefik.http.services.siliweb.loadbalancer.server.port=80"
     depends_on:
       - backend
 
