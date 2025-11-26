@@ -1,0 +1,37 @@
+{
+  "name": "siliweb-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "ts-node src/db/seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "job:update-blogposts": "ts-node src/jobs/updateBlogPosts.ts"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.12.2",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.7",
+    "express": "^4.21.2",
+    "graphql": "^16.12.0",
+    "node-cron": "^4.2.1",
+    "postgres": "^3.4.7",
+    "reading-time": "^1.5.0",
+    "rss-parser": "^3.13.0",
+    "winston": "^3.18.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.25",
+    "@types/node": "^24.10.1",
+    "drizzle-kit": "^0.31.7",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}

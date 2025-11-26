@@ -1,0 +1,20 @@
+{
+  "name": "siliweb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Silidrone/siliweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Silidrone/siliweb/issues"
+  },
+  "homepage": "https://github.com/Silidrone/siliweb#readme",
+  "description": ""
+}
