@@ -14,9 +14,27 @@ function Home() {
         <div className="home">
             <section className="hero">
                 <div className="container">
-                    <h1 className="hero-title">
-                        Hi, I'm <span className="highlight">Muhamed (aka Silidrone)</span>
-                    </h1>
+                    <div className="hero-heading-row">
+                        <a
+                            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hero-logo-link"
+                        >
+                            <img src="/logo2.png" alt="Logo 2" className="hero-logo" />
+                        </a>
+                        <h1 className="hero-title">
+                            Hi, I'm <span className="highlight">Muhamed (aka Silidrone)</span>
+                        </h1>
+                        <a
+                            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hero-logo-link"
+                        >
+                            <img src="/logo1.png" alt="Logo 1" className="hero-logo" />
+                        </a>
+                    </div>
                     <p className="hero-subtitle">
                         Software Engineer & Science Enthusiast
                     </p>

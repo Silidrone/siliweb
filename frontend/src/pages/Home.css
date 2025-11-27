@@ -8,6 +8,79 @@
 
 
 
+/* Hero Logo Row */
+.hero-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  height: auto;
+}
+
+.hero-heading-row .hero-title {
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-logo-link {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin-bottom: -180px;
+  align-self: flex-start;
+  margin-top: -60px;
+}
+
+.hero-logo {
+  width: 256px;
+  height: 256px;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: grayscale(30%) brightness(0.9);
+}
+
+.hero-logo-link:hover {
+  transform: translateY(-8px);
+}
+
+.hero-logo-link:hover .hero-logo {
+  filter: grayscale(0%) brightness(1) drop-shadow(0 0 12px var(--primary-color));
+  transform: scale(1.15) rotate(5deg);
+}
+
+.hero-logo-link::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.hero-logo-link:hover::after {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* Fancy glow pulse animation on hover */
+@keyframes hero-glow-pulse {
+  0%, 100% {
+    filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px var(--primary-color));
+  }
+  50% {
+    filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 24px var(--primary-color));
+  }
+}
+
+.hero-logo-link:hover .hero-logo {
+  animation: hero-glow-pulse 1.5s ease-in-out infinite;
+}
+
 .hero-title {
   font-size: var(--text-5xl);
   margin-bottom: var(--spacing-md);
@@ -15,6 +88,7 @@
   color: var(--text-primary);
   position: relative;
   z-index: 1;
+  white-space: nowrap;
 }
 
 .hero-title .highlight {
@@ -311,6 +385,10 @@
 @media (max-width: 768px) {
   .hero {
     padding: var(--spacing-xl) 0;
+  }
+
+  .hero-logo-link {
+    display: none;
   }
 
   .hero-title {
