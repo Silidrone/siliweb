@@ -48,6 +48,10 @@
   transform: scale(1.15) rotate(5deg);
 }
 
+.hero-logo-link:last-child:hover .hero-logo {
+  filter: grayscale(0%) brightness(1) drop-shadow(0 0 12px var(--secondary-color));
+}
+
 .hero-logo-link::after {
   content: '';
   position: absolute;
@@ -60,6 +64,11 @@
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   opacity: 0;
+}
+
+.hero-logo-link:last-child::after {
+  background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+  left: 65%;
 }
 
 .hero-logo-link:hover::after {
@@ -79,6 +88,19 @@
 
 .hero-logo-link:hover .hero-logo {
   animation: hero-glow-pulse 1.5s ease-in-out infinite;
+}
+
+.hero-logo-link:last-child:hover .hero-logo {
+  animation: hero-glow-pulse-secondary 1.5s ease-in-out infinite;
+}
+
+@keyframes hero-glow-pulse-secondary {
+  0%, 100% {
+    filter: grayscale(0%) brightness(1) drop-shadow(0 0 8px var(--secondary-color));
+  }
+  50% {
+    filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 24px var(--secondary-color));
+  }
 }
 
 .hero-title {
