@@ -15,6 +15,8 @@
   justify-content: center;
   gap: var(--spacing-xl);
   height: auto;
+  max-width: 100%;
+  flex-wrap: nowrap;
 }
 
 .hero-heading-row .hero-title {
@@ -26,17 +28,19 @@
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-  margin-bottom: -180px;
-  align-self: flex-start;
-  margin-top: -60px;
+  align-self: center;
+  flex-shrink: 0;
+  margin-top: -90px;
+  margin-bottom: -90px;
 }
 
 .hero-logo {
-  width: 256px;
-  height: 256px;
+  width: clamp(150px, 16vw, 240px);
+  height: clamp(150px, 16vw, 240px);
   object-fit: contain;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   filter: grayscale(30%) brightness(0.9);
+  flex-shrink: 0;
 }
 
 .hero-logo-link:hover {
@@ -104,12 +108,14 @@
 }
 
 .hero-title {
-  font-size: var(--text-5xl);
+  font-size: clamp(1.5rem, 3vw, 3rem);
   margin-bottom: var(--spacing-md);
   font-weight: 800;
   color: var(--text-primary);
   position: relative;
   z-index: 1;
+  flex: 0 1 auto;
+  min-width: 0;
   white-space: nowrap;
 }
 
