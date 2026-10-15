@@ -70,7 +70,7 @@ function Home() {
                         <div className="about-text">
                             <p>
 
-                                I have 5+ YoE architecting production systems: from serverless data pipelines processing billions of records to leading multi-million euro EU-funded projects.
+                                I have 6+ YoE architecting production systems: from serverless data pipelines processing billions of records to leading multi-million euro EU-funded projects.
                                 <br />
                                 <br />
                                 I specialize in full-stack development, cloud infrastructure, and ML/AI implementation for startups and SaaS companies.
