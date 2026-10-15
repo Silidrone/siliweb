@@ -39,7 +39,7 @@ function Experience() {
       title: 'Senior Software Engineer',
       company: 'IRESI',
       companyLink: 'https://iresi.eu',
-      period: 'Aug. 2024 - Present',
+      period: 'Aug. 2024 - Jul. 2026',
       description: 'Working on large-scale EU funded projects with researchers.',
       achievements: [
         'BoostMySkills – Architected and delivered an LMS/CMS platform as part of a €2.5 million EU-funded project RES4CITY, serving tens of thousands of students across multiple institutions, with distributed databases, automated deployment pipelines, and comprehensive backup systems',
