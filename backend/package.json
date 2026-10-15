@@ -11,7 +11,9 @@
     "db:migrate": "drizzle-kit migrate",
     "db:seed": "ts-node src/db/seed.ts",
     "db:studio": "drizzle-kit studio",
-    "job:update-blogposts": "ts-node src/jobs/updateBlogPosts.ts"
+    "jobs": "ts-node src/jobs/index.ts",
+    "job:update-blogposts": "ts-node src/jobs/updateBlogPosts.ts",
+    "job:sync-pinned": "ts-node src/jobs/syncPinnedProjects.ts"
   },
   "dependencies": {
     "@apollo/server": "^4.12.2",

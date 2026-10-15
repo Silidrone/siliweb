@@ -8,7 +8,9 @@ function Home() {
 
     if (loading) return <p>Loading...</p>
 
-    const featuredProjects = projects.filter(project => project.featured)
+    const featuredProjects = projects
+        .filter(project => project.featured)
+        .sort((a, b) => a.order - b.order)
 
     return (
         <div className="home">
