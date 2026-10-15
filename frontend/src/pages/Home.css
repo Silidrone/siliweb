@@ -115,7 +115,7 @@
   position: relative;
   z-index: 1;
   flex: 0 1 auto;
-  min-width: 0;
+  min-width: max-content;
   white-space: nowrap;
 }
 
